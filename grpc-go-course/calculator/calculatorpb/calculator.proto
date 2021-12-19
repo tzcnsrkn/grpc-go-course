@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package calculator;
+option go_package="./calculatorpb";
+
+message PrimeNumberCalculatorRequest {
+    int32 number = 1;
+}
+
+message PrimeNumberCalculatorResponse {
+    string result = 1;
+}
+
+service PrimeNumberCalculatorService {
+    rpc PrimeNumberCalculator(PrimeNumberCalculatorRequest) returns (stream PrimeNumberCalculatorResponse) {}
+}
